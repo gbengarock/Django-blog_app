@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+    <title>Django Blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar bg-light">
+        <div class="container-fluid">
+          <span class="navbar-brand mb-0 h1">Blog App</span>
+        </div>
+    </nav>
+    <div class='container'>
+        <div class="card text-center">
+            <div class="card-header">
+              Blog Post 1
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">By Gbengarock posted on 19 June, 2022</h5>
+              <p class="card-text">My First Blog Content</p>
+              
+            </div>
+            <div class="card-footer text-muted">
+              Published on 20 June, 2022
+            </div>
+          </div>
+        <div class="card">
+            {% for post in posts %}
+                <h1 class="card-header">{{ post.title }}</h1>
+                <div class="card-body">
+                    <p class="card-footer text-muted">By {{ post.author }} on {{ post.created_date }}</p>
+                    <p class="card-title">{{ post.content }}</p>
+                    <p class="card-footer text-muted">Published on {{ post.published_date }}</p>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"</script>
+
+    </body>
+</html>
